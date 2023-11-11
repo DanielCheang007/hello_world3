@@ -19,9 +19,10 @@
     gap: var(--btn-gap);
 }
 
-#calculator #keyboard button {
+button {
     background: #333333;
     color: #fff;
+    border: none;
 }
 
 button {
@@ -31,4 +32,8 @@ button {
 
 button.span-2 {
     grid-column: span 2;
+}
+
+button.aside {
+    background: #ff9f0a;
 }
