@@ -26,11 +26,37 @@ for (let i = 0; i < TOTAL_CELLS; i++) {
 
 const snake = [31, 32, 33, 43]
 
-for (let i = 0; i < snake.length; i++) {
-    const idx = snake[i]
-    const cell = CELLS[idx]
-    cell.classList.add("has-snake")
+function renderSnake() {
+    const cells = CELLS.filter((cell) => cell.classList.contains("has-snake"))
+    cells.forEach((cell) => cell.classList.remove('has-snake'))
+
+    snake.forEach((cellIdx) => {
+        const cell = CELLS[cellIdx]
+        cell.classList.add("has-snake")
+    })
 }
+
+renderSnake()
+
+document.addEventListener("keydown", (event) => {
+    let cellIdx = snake[0]
+
+    if (event.key === "ArrowDown") {
+        cellIdx += COLS
+    } else if (event.key === "ArrowUp") {
+        cellIdx -= COLS
+    } else if (event.key === "ArrowLeft") {
+        cellIdx -= 1
+    } else if (event.key === "ArrowRight") {
+        cellIdx += 1
+    }
+
+    snake.unshift(cellIdx)
+    snake.pop()
+    renderSnake()
+})
+
+
 
 const pgArray = []
 for (let i = 0; i < TOTAL_CELLS; i++) {
