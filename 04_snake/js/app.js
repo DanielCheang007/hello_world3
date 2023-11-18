@@ -51,6 +51,15 @@ document.addEventListener("keydown", (event) => {
         cellIdx += 1
     }
 
+    // touch the wall check
+    const r = Math.floor(cellIdx / COLS)
+    const c = cellIdx % COLS
+    //TODO: left right wall check faild
+    if (r < 0 || r >= ROWS || c < 0 || c >= COLS) {
+        alert("Game Over")
+        return
+    }
+
     // add current cell idx to the snake
     snake.unshift(cellIdx)
 
