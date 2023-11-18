@@ -2,6 +2,7 @@
     --width: 200px;
     --height: 400px;
     --default-color: #eee;
+    --highlight-color: #333;
 
     border: 1px solid var(--default-color);
 
@@ -26,4 +27,12 @@
     bottom: 2px;
     left: 2px;
     background: var(--default-color);
+}
+
+.cell.has-snake {
+    border: 1px solid var(--higlight-color);
+}
+
+.cell.has-snake::before {
+    background: var(--highlight-color);
 }

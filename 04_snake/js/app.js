@@ -11,10 +11,21 @@ const TOTAL_CELLS = COLS * ROWS
 const cellWidth = WIDTH / COLS
 const cellHeight = HIGHT / ROWS
 
+const cells = []
 for (let i = 0; i < TOTAL_CELLS; i++) {
     const cell = document.createElement("div")
     cell.classList.add("cell")
     cell.style.width = cellWidth + "px"
     cell.style.height = cellHeight + "px"
     pg.appendChild(cell)
+
+    cells.push(cell)
+}
+
+const snake = [31, 32, 33, 43]
+
+for (let i = 0; i < snake.length; i++) {
+    const idx = snake[i]
+    const cell = cells[idx]
+    cell.classList.add("has-snake")
 }
