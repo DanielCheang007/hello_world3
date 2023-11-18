@@ -51,8 +51,17 @@ document.addEventListener("keydown", (event) => {
         cellIdx += 1
     }
 
+    // add current cell idx to the snake
     snake.unshift(cellIdx)
-    snake.pop()
+
+    // remove the tail
+    if (CELLS[cellIdx].classList.contains("has-food")) {
+        CELLS[cellIdx].classList.remove("has-food")
+        dropFood()
+    } else {
+        snake.pop()
+    }
+
     renderSnake()
 })
 
