@@ -3,6 +3,7 @@
     --height: 400px;
     --default-color: #eee;
     --highlight-color: #333;
+    --food-color: red;
 
     border: 1px solid var(--default-color);
 
@@ -35,4 +36,12 @@
 
 .cell.has-snake::before {
     background: var(--highlight-color);
+}
+
+.cell.has-food {
+    border: 1px solid var(--food-color);
+}
+
+.cell.has-food::before {
+    background: var(--food-color);
 }
